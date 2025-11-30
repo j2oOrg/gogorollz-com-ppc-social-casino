@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - JackpotHub.cloud</title>
+  <meta name="description" content="Privacy commitments for JackpotHub.cloud. Learn how we keep this free-to-play social casino style experience lightweight and respectful of your data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+:root{
+  --bg: #060a14;
+  --panel: rgba(255,255,255,0.05);
+  --panel-strong: rgba(255,255,255,0.08);
+  --text: #e9eeff;
+  --muted: #b7c2db;
+  --heading: #fdf6ff;
+  --accent: #f5c452;
+  --accent-2: #70f0c7;
+  --border: rgba(255,255,255,0.12);
+  --radius: 14px;
+  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Poppins", "Inter", system-ui, sans-serif;
+  --shadow: 0 24px 70px rgba(0,0,0,0.5);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(112,240,199,0.08), transparent 28%),
+    radial-gradient(circle at 80% 8%, rgba(245,196,82,0.12), transparent 30%),
+    linear-gradient(140deg, #070c19, #050812 60%, #0b1021);
+  color:var(--text);
+  line-height:1.65;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-2); text-decoration:none; transition:color .18s, opacity .18s}
+a:hover{color:var(--accent); opacity:0.9}
+.link-accent{color:var(--accent); font-weight:700}
+.link-accent:hover{color:var(--accent-2)}
+img{max-width:100%; display:block}
+
+.container{width:min(1140px, 100% - 2rem); margin:0 auto}
+
+.notice-banner{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#031017;
+  padding:0.55rem 0;
+  text-align:center;
+  font-weight:700;
+  border-bottom:1px solid rgba(0,0,0,0.2);
+  box-shadow:0 10px 28px rgba(0,0,0,0.35);
+  position:relative;
+  z-index:70;
+}
+.banner-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.65rem;
+  flex-wrap:wrap;
+  font-size:0.97rem;
+}
+.banner-pill{
+  background:rgba(0,0,0,0.12);
+  color:#031017;
+  padding:0.35rem 0.7rem;
+  border-radius:999px;
+  font-weight:800;
+  letter-spacing:0.5px;
+}
+
+.jackpothub-cloud-nav{
+  background:rgba(6,10,20,0.92);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);
+  position:sticky;
+  top:0;
+  z-index:60;
+  padding:0.85rem 0;
+}
+.jackpothub-cloud-nav .navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:0.65rem;
+  padding:0;
+}
+.brand-logo{
+  width:132px;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+}
+.jackpothub-cloud-nav .nav-link{
+  color:var(--text);
+  font-weight:600;
+  margin:0 0.35rem;
+  padding:0.35rem 0.65rem;
+  border-radius:10px;
+  transition:background .15s, color .15s;
+}
+.jackpothub-cloud-nav .nav-link.active,
+.jackpothub-cloud-nav .nav-link:hover{
+  background:var(--panel);
+  color:var(--accent);
+}
+.navbar-toggler{
+  border:1px solid var(--border);
+  color:var(--text);
+}
+.navbar-toggler:focus{box-shadow:0 0 0 3px rgba(112,240,199,0.18)}
+
+.jackpothub-cloud-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.4rem;
+  padding:0.78rem 1.6rem;
+  border-radius:12px;
+  font-weight:700;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .16s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  text-decoration:none;
+}
+.jackpothub-cloud-btn.primary{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#060a14;
+  box-shadow:0 14px 36px rgba(0,0,0,0.4);
+}
+.jackpothub-cloud-btn.primary:hover{transform:translateY(-2px)}
+.jackpothub-cloud-btn.ghost{
+  background:var(--panel);
+  border-color:var(--border);
+  color:var(--text);
+}
+.jackpothub-cloud-btn.ghost:hover{color:var(--accent)}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:0.78rem;
+  color:var(--muted);
+  margin:0 0 0.35rem;
+}
+.section-title{
+  font-family:var(--font-heading);
+  color:var(--heading);
+  font-size:2.1rem;
+  margin:0 0 0.45rem;
+}
+.section-sub{margin:0 0 1rem; color:var(--muted)}
+
+.jackpothub-cloud-hero{
+  position:relative;
+  padding:clamp(3rem, 6vw, 4.8rem) 0;
+  overflow:hidden;
+}
+.jackpothub-cloud-hero::before,
+.jackpothub-cloud-hero::after{
+  content:"";
+  position:absolute;
+  width:420px; height:420px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.35;
+  z-index:0;
+}
+.jackpothub-cloud-hero::before{top:-120px; left:-60px; background:radial-gradient(circle, rgba(112,240,199,0.45), transparent 60%)}
+.jackpothub-cloud-hero::after{bottom:-140px; right:-20px; background:radial-gradient(circle, rgba(245,196,82,0.45), transparent 60%)}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.6rem;
+  text-align:center;
+}
+.hero-title{
+  font-family:var(--font-heading);
+  font-size:2.8rem;
+  line-height:1.08;
+  margin:0 0 0.6rem;
+}
+.hero-sub{
+  color:var(--muted);
+  margin:0 auto;
+  max-width:780px;
+}
+.hero-cta{display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-top:1.1rem}
+.hero-badges{
+  display:flex;
+  justify-content:center;
+  gap:0.6rem;
+  flex-wrap:wrap;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:0.35rem;
+  padding:0.4rem 0.8rem;
+  border-radius:999px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  color:var(--muted);
+  font-weight:600;
+  font-size:0.95rem;
+}
+.pill.accent{
+  background:rgba(245,196,82,0.14);
+  color:var(--accent);
+  border-color:rgba(245,196,82,0.4);
+}
+
+.jackpothub-cloud-disclaimer-card{padding:3rem 0}
+.disclaimer-box{
+  max-width:900px;
+  margin:0 auto;
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:1.4rem;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.disclaimer-title{
+  color:var(--heading);
+  margin:0 0 0.35rem;
+  font-family:var(--font-heading);
+}
+.disclaimer-heading{
+  margin:0 0 0.4rem;
+  color:var(--heading);
+  font-family:var(--font-heading);
+}
+.disclaimer-text{color:var(--muted); margin:0 0 1rem}
+.disclaimer-btn{
+  background:var(--accent);
+  color:#060a14;
+  padding:0.6rem 1.25rem;
+  border-radius:999px;
+  font-weight:700;
+  display:inline-block;
+}
+.disclaimer-btn:hover{background:var(--accent-2); color:#02150f}
+
+.jackpothub-cloud-play{
+  padding:3.5rem 0;
+  text-align:center;
+}
+.game-wrapper{
+  margin:2rem auto;
+  display:flex;
+  justify-content:center;
+}
+.game-wrapper > .w-100{
+  width:100%;
+  max-width:920px;
+  text-align:center;
+}
+.game-frame{
+  position:relative;
+  width:100%;
+  max-width:920px;
+  border-radius:14px;
+  overflow:hidden;
+  background:linear-gradient(160deg, rgba(245,196,82,0.14), rgba(112,240,199,0.08));
+  border:1px solid var(--border);
+  box-shadow:0 16px 40px rgba(0,0,0,0.45);
+}
+.game-frame::before{content:""; display:block; padding-top:56.25%;}
+.game-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.game-caption{
+  margin-top:0.5rem;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.jackpothub-cloud-features{
+  padding:3.5rem 0;
+  background:rgba(255,255,255,0.01);
+}
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:1rem;
+  margin-top:1.6rem;
+}
+.feature-box{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:1.4rem;
+  border-radius:12px;
+  color:var(--text);
+  transition:transform .16s, box-shadow .16s;
+  box-shadow:var(--shadow);
+}
+.feature-box:hover{transform:translateY(-4px); box-shadow:0 18px 46px rgba(0,0,0,0.6)}
+.feature-icon{font-size:1.9rem; color:var(--accent); margin-bottom:0.4rem}
+.feature-box h4{margin:0 0 0.35rem; font-family:var(--font-heading)}
+.feature-box p{margin:0; color:var(--muted)}
+
+.jackpothub-cloud-about{padding:3.8rem 0}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.8rem;
+  align-items:center;
+}
+.about-visual{
+  background:linear-gradient(145deg, rgba(245,196,82,0.2), rgba(112,240,199,0.16));
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.5rem;
+  position:relative;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.about-visual::after{
+  content:"JH";
+  position:absolute;
+  right:14px;
+  bottom:8px;
+  font-size:3.6rem;
+  font-weight:800;
+  color:rgba(255,255,255,0.06);
+  letter-spacing:3px;
+}
+.about-visual img{border-radius:12px; box-shadow:0 16px 36px rgba(0,0,0,0.55)}
+.about-text p{color:var(--muted); margin:0 0 0.8rem}
+.about-text .jackpothub-cloud-btn{margin-top:0.4rem}
+
+.jackpothub-cloud-reviews{
+  padding:3.5rem 0;
+  text-align:center;
+}
+.reviews-grid{
+  max-width:940px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:1rem;
+}
+.review-card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:1.2rem;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.review-text{font-style:italic; color:var(--text); margin:0 0 0.6rem}
+.review-author{color:var(--accent); font-weight:700; margin:0}
+
+.jackpothub-cloud-contact{
+  background:rgba(255,255,255,0.01);
+  padding:4rem 0;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.6rem;
+}
+.contact-info{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.1rem;
+  color:var(--text);
+}
+.contact-info p{margin:0.1rem 0; color:var(--muted)}
+.contact-info strong{color:var(--text)}
+.contact-form{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.1rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.9rem;
+  box-shadow:var(--shadow);
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:0.78rem 0.9rem;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.03);
+  color:var(--text);
+  font-size:1rem;
+  transition:border .16s, box-shadow .16s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--accent-2);
+  box-shadow:0 0 0 3px rgba(112,240,199,0.18);
+}
+.form-status{
+  min-height:20px;
+  color:var(--muted);
+}
+.form-status.success{color:#8ef8c8}
+.form-status.error{color:#f5c452}
+
+.jackpothub-cloud-legal{
+  background:rgba(255,255,255,0.02);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:3.5rem 0;
+}
+.jackpothub-cloud-legal .section-title{text-align:center}
+.jackpothub-cloud-legal .subheading{
+  color:var(--accent);
+  font-size:1.15rem;
+  margin:1.6rem 0 0.4rem;
+}
+.jackpothub-cloud-legal p{
+  color:var(--muted);
+  margin:0 0 1rem;
+}
+
+.jackpothub-cloud-footer{
+  background:rgba(6,10,20,0.95);
+  color:var(--text);
+  text-align:center;
+  padding:3.2rem 1rem 2.4rem;
+  border-top:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.jackpothub-cloud-footer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 20%, rgba(245,196,82,0.04), transparent 65%);
+  z-index:0;
+}
+.jackpothub-cloud-footer .container{position:relative; z-index:1}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.7rem;
+  margin-bottom:1rem;
+}
+.footer-disclaimer{
+  background:var(--panel);
+  border:1px solid var(--border);
+  color:var(--muted);
+  max-width:780px;
+  margin:0 auto 1.6rem;
+  padding:1.2rem;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+}
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:0.85rem;
+  flex-wrap:wrap;
+  padding:0;
+  margin:0 0 1rem;
+  list-style:none;
+}
+.footer-links a{
+  color:var(--accent);
+  font-weight:600;
+}
+.footer-links a:hover{color:var(--accent-2)}
+.footer-copy{
+  color:var(--muted);
+  margin:0;
+}
+
+.jackpothub-cloud-popup{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.82);
+  z-index:9999;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .2s, visibility .2s;
+  padding:1rem;
+}
+.jackpothub-cloud-popup.active{opacity:1; visibility:visible}
+.jackpothub-cloud-popup .popup-inner{
+  background:linear-gradient(160deg, rgba(6,10,20,0.96), rgba(6,10,20,0.98));
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:1.6rem;
+  border-radius:14px;
+  max-width:520px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.jackpothub-cloud-popup h3{margin:0 0 0.4rem; color:var(--heading)}
+.jackpothub-cloud-popup p{margin:0 0 0.8rem; color:var(--muted)}
+.popup-buttons{display:flex; justify-content:center; gap:0.6rem; flex-wrap:wrap}
+.popup-buttons .exit{background:transparent; border:1px solid var(--border); color:var(--heading)}
+.popup-buttons .exit:hover{background:var(--panel)}
+
+.jackpothub-cloud-scroll{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:none;
+  background:var(--accent);
+  color:#060a14;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 14px 34px rgba(0,0,0,0.55);
+  opacity:0;
+  visibility:hidden;
+  transition:all .16s;
+  z-index:90;
+}
+.jackpothub-cloud-scroll.show{opacity:1; visibility:visible}
+.jackpothub-cloud-scroll:hover{background:var(--accent-2)}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  border:0;
+}
+
+@media (max-width: 992px){
+  .about-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+  .hero-title{font-size:2.4rem}
+}
+@media (max-width: 768px){
+  .hero-title{font-size:2.05rem}
+  .game-frame{max-width:100%}
+  .jackpothub-cloud-nav{padding:0.75rem 0}
+}
+@media (max-width: 576px){
+  .hero-cta{flex-direction:column}
+  .brand-logo{width:114px}
+}
+
+</style>
+</head>
+<body class="jackpothub-cloud jackpothub-cloud-e6a9">
+
+<div class="notice-banner notice-banner-q6a7">
+  <div class="container container-u2v1 banner-inner banner-inner-s6a4">
+    <span class="banner-pill banner-pill-n9j7">18+</span>
+    <span>JackpotHub is a free-to-play social casino experience. No real-money gambling or prizes. 18+ only. Please play responsibly.</span>
+  </div>
+</div>
+
+<nav class="navbar navbar-a8c1 navbar-expand-lg navbar-expand-lg-v2w1 jackpothub-cloud-nav jackpothub-cloud-nav-x5o1">
+  <div class="container container-u2v1 d-flex d-flex-p3y4 align-items-center align-items-center-y0u5 justify-content-between justify-content-between-x2u8">
+    <a class="navbar-brand navbar-brand-f7b5" href="/">
+      <img class="brand-logo brand-logo-q4a0" src="../assets/img.png" alt="JackpotHub logo">
+      <span class="sr-only sr-only-m7d3">JackpotHub.cloud</span>
+    </a>
+    <button class="navbar-toggler navbar-toggler-r2d8" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon navbar-toggler-icon-g7v6"><i class="fas fas-n3h9 fa-bars fa-bars-n1y2"></i></span>
+    </button>
+
+    <div class="collapse collapse-t2v1 navbar-collapse navbar-collapse-s7u9 justify-content-end justify-content-end-s9b8" id="navMenu">
+      <ul class="navbar-nav navbar-nav-p2i8 mb-2 mb-2-d8e9 mb-lg-0 mb-lg-0-r0g4 align-items-lg-center align-items-lg-center-y9l3">
+        <li class="nav-item nav-item-j0c0"><a class="nav-link nav-link-r9s1" href="/">Home</a></li>
+        <li class="nav-item nav-item-j0c0"><a class="nav-link nav-link-r9s1" href="/play">Play</a></li>
+        <li class="nav-item nav-item-j0c0"><a class="nav-link nav-link-r9s1" href="/#contact">Contact</a></li>
+        <li class="nav-item nav-item-j0c0"><a class="nav-link nav-link-r9s1" href="/disclaimer">Disclaimer</a></li>
+        <li class="nav-item nav-item-j0c0"><a class="nav-link nav-link-r9s1 active active-h2d1" href="/privacy-policy">Privacy</a></li>
+        <li class="nav-item nav-item-j0c0"><a class="nav-link nav-link-r9s1" href="/terms-and-conditions">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section id="privacy-policy" class="jackpothub-cloud-legal jackpothub-cloud-legal-n5x6">
+  <div class="container container-u2v1">
+    <h2 class="section-title section-title-s0r6">Privacy Policy</h2>
+
+    <h3 class="subheading subheading-k9x2">1. Introduction</h3>
+    <p>
+      At <strong>JackpotHub.cloud</strong>, privacy is treated as a baseline feature. We run a free-to-play, social casino style site
+      with minimal data needs, and we avoid collecting personally identifiable information whenever possible.
+    </p>
+
+    <h3 class="subheading subheading-k9x2">2. What we collect</h3>
+    <p>
+      We do not ask for payment details or government IDs. Lightweight, non-identifiable technical data — such as browser type,
+      approximate region, and performance metrics — may be used to monitor uptime and improve accessibility.
+    </p>
+
+    <h3 class="subheading subheading-k9x2">3. Cookies and analytics</h3>
+    <p>
+      Any analytics are limited to anonymous, aggregate usage insights. If cookies are present, they are only for functionality
+      (e.g., remembering age confirmation) and not for cross-site tracking or ad profiling.
+    </p>
+
+    <h3 class="subheading subheading-k9x2">4. How we use data</h3>
+    <p>
+      Data collected is used solely to maintain, secure, and enhance the site experience. We do not sell, rent, or trade your
+      information with third parties.
+    </p>
+
+    <h3 class="subheading subheading-k9x2">5. Communication</h3>
+    <p>
+      If you contact us via email or the form, we use your details only to respond to your request. Messages may be retained
+      briefly for support follow-up, then removed when no longer needed.
+    </p>
+
+    <h3 class="subheading subheading-k9x2">6. Your options</h3>
+    <p>
+      You can request deletion of prior communications or details you shared with us. Because we avoid deep data collection,
+      most requests can be handled quickly by emailing <a href="mailto:hello@jackpothub.cloud" class="link-accent link-accent-l5e9">hello@jackpothub.cloud</a>.
+    </p>
+
+    <h3 class="subheading subheading-k9x2">7. Updates</h3>
+    <p>
+      This policy may be updated to reflect technology changes or new compliance needs. Material updates will be highlighted on
+      this page for transparency.
+    </p>
+  </div>
+</section>
+
+<footer class="jackpothub-cloud-footer jackpothub-cloud-footer-t8s4">
+  <div class="container container-u2v1">
+    <div class="footer-brand footer-brand-n0l2">
+      <img class="brand-logo brand-logo-q4a0" src="../assets/img.png" alt="JackpotHub logo">
+      <span class="sr-only sr-only-m7d3">JackpotHub.cloud</span>
+    </div>
+
+    <div class="footer-disclaimer footer-disclaimer-k3q9">
+      <h5 class="disclaimer-heading disclaimer-heading-q7u6"><i class="fas fas-n3h9 fa-snowflake fa-snowflake-w2f5 me-2 me-2-f9m1"></i> Responsible play notice</h5>
+      <p>
+        <strong>JackpotHub.cloud</strong> provides free-to-play, social casino style digital experiences for adults aged
+        <strong>18+</strong>. There are no monetary incentives or rewards. Please engage responsibly and take regular breaks
+        for a healthy balance.
+      </p>
+    </div>
+
+    <ul class="footer-links footer-links-q9j0">
+      <li><a href="/">Home</a></li>
+      <li><a href="/play">Play</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/disclaimer">Disclaimer</a></li>
+      <li><a href="/privacy-policy">Privacy Policy</a></li>
+      <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+    </ul>
+
+    <p class="footer-copy footer-copy-f7t6">
+      © <span data-year></span> JackpotHub.cloud
+    </p>
+  </div>
+</footer>
+
+<button id="hubScrollTop" class="jackpothub-cloud-scroll jackpothub-cloud-scroll-z4r1" aria-label="Scroll to top">
+  <i class="fas fas-n3h9 fa-chevron-up fa-chevron-up-q9b4"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/main.js" defer></script>
+</body>
+</html>
