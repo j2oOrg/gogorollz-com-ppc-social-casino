@@ -7,8 +7,9 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy the repository (filtered by .dockerignore) into the web root.
 COPY . /usr/share/nginx/html
 
-# Surface the favicon at the expected root path for browsers.
-RUN cp /usr/share/nginx/html/public/favicon.ico /usr/share/nginx/html/favicon.ico
+# Surface favicons/touch icons at the expected root paths for browsers.
+RUN cp /usr/share/nginx/html/public/favicon.ico /usr/share/nginx/html/favicon.ico \
+    && cp /usr/share/nginx/html/public/apple-touch-icon.png /usr/share/nginx/html/apple-touch-icon.png
 
 EXPOSE 80
 
