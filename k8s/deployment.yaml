@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jackpothub-cloud-ppc-social
+  name: gogorollz-com-ppc-social
   labels:
-    app: jackpothub-cloud-ppc-social
+    app: gogorollz-com-ppc-social
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jackpothub-cloud-ppc-social
+      app: gogorollz-com-ppc-social
   template:
     metadata:
       labels:
-        app: jackpothub-cloud-ppc-social
+        app: gogorollz-com-ppc-social
     spec:
       containers:
-        - name: jackpothub-cloud-ppc-social
+        - name: gogorollz-com-ppc-social
           image: IMAGE_PLACEHOLDER
           ports:
             - containerPort: 80
@@ -23,13 +23,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jackpothub-cloud-ppc-social
+  name: gogorollz-com-ppc-social
   labels:
-    app: jackpothub-cloud-ppc-social
+    app: gogorollz-com-ppc-social
 spec:
   type: LoadBalancer
   selector:
-    app: jackpothub-cloud-ppc-social
+    app: gogorollz-com-ppc-social
   ports:
     - name: http
       protocol: TCP

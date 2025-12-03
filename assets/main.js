@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       status.textContent = "";
-      status.className = "form-status";
+      status.className = "form-status-h1m6";
 
       const name = document.getElementById("hubName").value.trim();
       const email = document.getElementById("hubEmail").value.trim();
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         status.textContent = "";
-        status.className = "form-status";
+      status.className = "form-status-h1m6";
       }, 4000);
     });
   }
@@ -51,3 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
     el.textContent = new Date().getFullYear();
   });
 });
+
