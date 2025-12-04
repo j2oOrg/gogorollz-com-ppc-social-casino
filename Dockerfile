@@ -24,6 +24,7 @@ RUN chmod +x /usr/local/bin/wp-entrypoint.sh
 COPY wp-content /usr/src/wordpress/wp-content
 COPY favicon.ico apple-touch-icon.png /usr/src/wordpress/
 COPY wp-setup.conf /usr/src/wordpress/wp-setup.conf
+COPY wp-plugins /usr/src/wordpress/wp-plugins
 
 ENTRYPOINT ["wp-entrypoint.sh"]
 CMD ["apache2-foreground"]

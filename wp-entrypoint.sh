@@ -18,6 +18,7 @@ ADMIN_USER=${WP_ADMIN_USER:-${ADMIN_USER:-admin}}
 ADMIN_PASSWORD=${WP_ADMIN_PASSWORD:-${ADMIN_PASSWORD:-changeme}}
 ADMIN_EMAIL=${WP_ADMIN_EMAIL:-${ADMIN_EMAIL:-admin@example.com}}
 SITE_URL=${WP_SITE_URL:-${SITE_URL:-http://localhost:8080}}
+PLUGIN_DROP_DIR=${WP_PLUGIN_DROP_DIR:-/usr/src/wordpress/wp-plugins}
 
 # Initialize MariaDB data directory on first run.
 if [ ! -d "/var/lib/mysql/mysql" ]; then
@@ -101,6 +102,28 @@ if [ "${WP_INSTALL_FILEBIRD:-1}" = "1" ]; then
         wp --path=/var/www/html --allow-root plugin activate filebird || \
             echo "Warning: could not activate FileBird plugin." >&2
     fi
+fi
+
+# Install/activate plugins dropped into ${PLUGIN_DROP_DIR} (zip files or folders).
+if [ -d "${PLUGIN_DROP_DIR}" ]; then
+    echo "Processing plugins in ${PLUGIN_DROP_DIR}..."
+    shopt -s nullglob
+    for zip in "${PLUGIN_DROP_DIR}"/*.zip; do
+        echo "Installing plugin from zip: ${zip}"
+        wp --path=/var/www/html --allow-root plugin install "${zip}" --force --activate || \
+          echo "Warning: failed to install ${zip}" >&2
+    done
+    for dir in "${PLUGIN_DROP_DIR}"/*/; do
+        slug=$(basename "${dir%/}")
+        dest="/var/www/html/wp-content/plugins/${slug}"
+        if [ ! -d "${dest}" ]; then
+            echo "Copying plugin folder ${slug}..."
+            cp -a "${dir}" "${dest}" || echo "Warning: failed to copy ${slug}" >&2
+        fi
+        wp --path=/var/www/html --allow-root plugin activate "${slug}" || \
+          echo "Warning: failed to activate ${slug}" >&2
+    done
+    shopt -u nullglob
 fi
 
 # Hand off to the original WordPress entrypoint (starts Apache/PHP).

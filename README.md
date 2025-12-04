@@ -44,6 +44,7 @@ docker run -d --name wp-single -p 8080:80 `
 - The templates auto-apply by slug; the shared nav/footer match the original static site, and brand assets are bundled in the theme.
 - The entrypoint auto-activates the bundled “Gogorollz” theme on first boot; you can switch themes later in `/wp-admin`.
 - The entrypoint installs and activates the FileBird plugin by default; set `WP_INSTALL_FILEBIRD=0` to skip.
+- To auto-install extra plugins, drop zips or plugin folders into `wp-plugins/` before building. On startup, the entrypoint will install/activate any `.zip` files and copy/activate any directories found there. Override the drop-in path with `WP_PLUGIN_DROP_DIR`.
 
 ## Auto-install WordPress (skip the setup wizard)
 
