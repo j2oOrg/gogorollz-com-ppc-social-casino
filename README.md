@@ -55,3 +55,4 @@ docker run -d --name wp-single -p 8080:80 `
   - generate `wp-config.php` with the DB values above
   - run `wp core install` with the configured site title, URL, and admin credentials
 - You can override these at runtime with env vars: `WP_SITE_TITLE`, `WP_SITE_URL`, `WP_ADMIN_USER`, `WP_ADMIN_PASSWORD`, `WP_ADMIN_EMAIL`, or point to a different config file via `WP_SETUP_CONFIG`.
+- Default `SITE_URL` now points to `https://gogorollz.com` to avoid mixed-content issues; override with `WP_SITE_URL` for other domains or local HTTP.

@@ -17,7 +17,7 @@ SITE_TITLE=${WP_SITE_TITLE:-${SITE_TITLE:-Gogorollz}}
 ADMIN_USER=${WP_ADMIN_USER:-${ADMIN_USER:-admin}}
 ADMIN_PASSWORD=${WP_ADMIN_PASSWORD:-${ADMIN_PASSWORD:-changeme}}
 ADMIN_EMAIL=${WP_ADMIN_EMAIL:-${ADMIN_EMAIL:-admin@example.com}}
-SITE_URL=${WP_SITE_URL:-${SITE_URL:-http://localhost:8080}}
+SITE_URL=${WP_SITE_URL:-${SITE_URL:-https://gogorollz.com}}
 PLUGIN_DROP_DIR=${WP_PLUGIN_DROP_DIR:-/usr/src/wordpress/wp-plugins}
 
 # Initialize MariaDB data directory on first run.
@@ -89,6 +89,12 @@ fi
 # Activate the bundled Gogorollz theme by default (idempotent).
 if wp --path=/var/www/html --allow-root theme is-installed gogorollz; then
     wp --path=/var/www/html --allow-root theme activate gogorollz
+fi
+
+# Ensure site/home URLs are aligned with SITE_URL to avoid mixed-content issues.
+if [ -n "${SITE_URL}" ]; then
+    wp --path=/var/www/html --allow-root option update siteurl "${SITE_URL}" || true
+    wp --path=/var/www/html --allow-root option update home "${SITE_URL}" || true
 fi
 
 # Install and activate FileBird plugin (idempotent, overridable).
