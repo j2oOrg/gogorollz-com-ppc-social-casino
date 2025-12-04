@@ -73,6 +73,8 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
         --dbhost="${WP_DB_HOST}" \
         --skip-check
 fi
+# Ensure SSL is enforced in admin to match SITE_URL and avoid redirect loops behind proxies.
+wp --path=/var/www/html --allow-root config set FORCE_SSL_ADMIN true --raw --type=constant
 
 # Auto-install WordPress (idempotent).
 if ! wp --path=/var/www/html --allow-root core is-installed; then
