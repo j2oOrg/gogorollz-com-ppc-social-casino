@@ -1,16 +1,16 @@
-# Static site image built on nginx
-FROM nginx:1.27-alpine
+FROM wordpress:php8.2-apache
 
-# Remove default nginx content before copying the static site.
-RUN rm -rf /usr/share/nginx/html/*
+# Install MariaDB server alongside WordPress/PHP/Apache.
+RUN apt-get update \
+    && apt-get install -y mariadb-server mariadb-client \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy the repository (filtered by .dockerignore) into the web root.
-COPY . /usr/share/nginx/html
+# Ensure the MySQL data directory exists and is owned by mysql.
+RUN mkdir -p /var/lib/mysql && chown -R mysql:mysql /var/lib/mysql
 
-# Surface favicons/touch icons at the expected root paths for browsers.
-RUN cp /usr/share/nginx/html/public/favicon.ico /usr/share/nginx/html/favicon.ico \
-    && cp /usr/share/nginx/html/public/apple-touch-icon.png /usr/share/nginx/html/apple-touch-icon.png
+# Add the wrapper entrypoint that boots MariaDB then hands off to WordPress.
+COPY wp-entrypoint.sh /usr/local/bin/wp-entrypoint.sh
+RUN chmod +x /usr/local/bin/wp-entrypoint.sh
 
-EXPOSE 80
-
-CMD ["nginx","-g","daemon off;"]
+ENTRYPOINT ["wp-entrypoint.sh"]
+CMD ["apache2-foreground"]
