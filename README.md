@@ -42,6 +42,7 @@ docker run -d --name wp-single -p 8080:80 `
   - Privacy Policy (`/privacy-policy`)
   - Terms & Conditions (`/terms-and-conditions`)
 - The templates auto-apply by slug; the shared nav/footer match the original static site, and brand assets are bundled in the theme.
+- The entrypoint auto-activates the bundled “Gogorollz” theme on first boot; you can switch themes later in `/wp-admin`.
 
 ## Auto-install WordPress (skip the setup wizard)
 

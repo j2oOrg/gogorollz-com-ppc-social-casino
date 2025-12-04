@@ -85,5 +85,10 @@ if ! wp --path=/var/www/html --allow-root core is-installed; then
         --skip-email
 fi
 
+# Activate the bundled Gogorollz theme by default (idempotent).
+if wp --path=/var/www/html --allow-root theme is-installed gogorollz; then
+    wp --path=/var/www/html --allow-root theme activate gogorollz
+fi
+
 # Hand off to the original WordPress entrypoint (starts Apache/PHP).
 exec docker-entrypoint.sh "$@"
