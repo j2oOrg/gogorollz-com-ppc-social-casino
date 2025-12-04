@@ -43,6 +43,7 @@ docker run -d --name wp-single -p 8080:80 `
   - Terms & Conditions (`/terms-and-conditions`)
 - The templates auto-apply by slug; the shared nav/footer match the original static site, and brand assets are bundled in the theme.
 - The entrypoint auto-activates the bundled “Gogorollz” theme on first boot; you can switch themes later in `/wp-admin`.
+- The entrypoint installs and activates the FileBird plugin by default; set `WP_INSTALL_FILEBIRD=0` to skip.
 
 ## Auto-install WordPress (skip the setup wizard)
 
