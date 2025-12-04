@@ -45,7 +45,7 @@ docker run -d --name wp-single -p 8080:80 `
 - The entrypoint auto-activates the bundled “Gogorollz” theme on first boot; you can switch themes later in `/wp-admin`.
 - The entrypoint installs and activates the FileBird plugin by default; set `WP_INSTALL_FILEBIRD=0` to skip.
 - To auto-install extra plugins, drop zips or plugin folders into `wp-plugins/` before building. On startup, the entrypoint will install/activate any `.zip` files and copy/activate any directories found there. Override the drop-in path with `WP_PLUGIN_DROP_DIR`.
-- HTTPS/by-proxy: `SITE_URL` defaults to `https://gogorollz.com`, the entrypoint updates `siteurl/home`, sets `FORCE_SSL_ADMIN`, and a mu-plugin (`wp-content/mu-plugins/https-forward.php`) trusts `X-Forwarded-Proto`/`Forwarded` to mark requests as HTTPS. Ensure your ingress sends `X-Forwarded-Proto: https`.
+- HTTPS/by-proxy: `SITE_URL` defaults to `https://gogorollz.com`, the entrypoint updates `siteurl/home`, sets `FORCE_SSL_ADMIN`, and a mu-plugin (`wp-content/mu-plugins/https-forward.php`) trusts `X-Forwarded-Proto`/`Forwarded`/`CF-Visitor` to mark requests as HTTPS. Ensure your ingress/CDN sends `X-Forwarded-Proto: https` (or Cloudflare’s `CF-Visitor`).
 
 ## Auto-install WordPress (skip the setup wizard)
 

@@ -11,7 +11,8 @@ if (!defined('FORCE_SSL_ADMIN')) {
 if (
     (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
     (isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
-    (isset($_SERVER['HTTP_FORWARDED']) && stripos($_SERVER['HTTP_FORWARDED'], 'proto=https') !== false)
+    (isset($_SERVER['HTTP_FORWARDED']) && stripos($_SERVER['HTTP_FORWARDED'], 'proto=https') !== false) ||
+    (isset($_SERVER['HTTP_CF_VISITOR']) && stripos($_SERVER['HTTP_CF_VISITOR'], '"https"') !== false)
 ) {
     $_SERVER['HTTPS'] = 'on';
     $_SERVER['SERVER_PORT'] = 443;
