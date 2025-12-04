@@ -12,6 +12,10 @@ RUN mkdir -p /var/lib/mysql && chown -R mysql:mysql /var/lib/mysql
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x /usr/local/bin/wp
 
+# Silence Apache ServerName warnings.
+RUN echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf \
+    && a2enconf servername
+
 # Add the wrapper entrypoint that boots MariaDB then hands off to WordPress.
 COPY wp-entrypoint.sh /usr/local/bin/wp-entrypoint.sh
 RUN chmod +x /usr/local/bin/wp-entrypoint.sh
