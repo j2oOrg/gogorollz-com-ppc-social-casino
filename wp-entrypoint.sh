@@ -7,6 +7,18 @@ WP_DB_USER=${WORDPRESS_DB_USER:-wpuser}
 WP_DB_PASSWORD=${WORDPRESS_DB_PASSWORD:-wppassword}
 WP_DB_HOST=127.0.0.1
 
+# Optional site setup config (overridable via env vars).
+CONFIG_FILE=${WP_SETUP_CONFIG:-/usr/src/wordpress/wp-setup.conf}
+if [ -f "$CONFIG_FILE" ]; then
+    # shellcheck disable=SC1090
+    . "$CONFIG_FILE"
+fi
+SITE_TITLE=${WP_SITE_TITLE:-${SITE_TITLE:-Gogorollz}}
+ADMIN_USER=${WP_ADMIN_USER:-${ADMIN_USER:-admin}}
+ADMIN_PASSWORD=${WP_ADMIN_PASSWORD:-${ADMIN_PASSWORD:-changeme}}
+ADMIN_EMAIL=${WP_ADMIN_EMAIL:-${ADMIN_EMAIL:-admin@example.com}}
+SITE_URL=${WP_SITE_URL:-${SITE_URL:-http://localhost:8080}}
+
 # Initialize MariaDB data directory on first run.
 if [ ! -d "/var/lib/mysql/mysql" ]; then
     echo "Initializing MariaDB data directory..."
@@ -41,6 +53,37 @@ export WORDPRESS_DB_HOST=${WP_DB_HOST}
 export WORDPRESS_DB_NAME=${WP_DB_NAME}
 export WORDPRESS_DB_USER=${WP_DB_USER}
 export WORDPRESS_DB_PASSWORD=${WP_DB_PASSWORD}
+
+# Ensure WordPress core is present (volume-safe copy).
+if [ ! -e "/var/www/html/wp-settings.php" ]; then
+    echo "Copying WordPress core to /var/www/html..."
+    cp -a /usr/src/wordpress/. /var/www/html/
+fi
+
+chown -R www-data:www-data /var/www/html
+
+# Auto-generate wp-config.php if missing.
+if [ ! -f "/var/www/html/wp-config.php" ]; then
+    echo "Generating wp-config.php..."
+    wp --path=/var/www/html --allow-root config create \
+        --dbname="${WP_DB_NAME}" \
+        --dbuser="${WP_DB_USER}" \
+        --dbpass="${WP_DB_PASSWORD}" \
+        --dbhost="${WP_DB_HOST}" \
+        --skip-check
+fi
+
+# Auto-install WordPress (idempotent).
+if ! wp --path=/var/www/html --allow-root core is-installed; then
+    echo "Running initial WordPress install..."
+    wp --path=/var/www/html --allow-root core install \
+        --url="${SITE_URL}" \
+        --title="${SITE_TITLE}" \
+        --admin_user="${ADMIN_USER}" \
+        --admin_password="${ADMIN_PASSWORD}" \
+        --admin_email="${ADMIN_EMAIL}" \
+        --skip-email
+fi
 
 # Hand off to the original WordPress entrypoint (starts Apache/PHP).
 exec docker-entrypoint.sh "$@"

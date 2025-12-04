@@ -30,7 +30,7 @@ docker run -d --name wp-single -p 8080:80 `
 
 - MariaDB and WordPress both run inside the container; the `wp-entrypoint.sh` script initializes `/var/lib/mysql` if empty and creates the database/user.
 - DB files persist to `db-data`, WordPress core/uploads/themes/plugins persist to `wp-data`.
-- Browse at http://localhost:8080 and finish the WordPress setup wizard; adjust the port, volume paths, or credentials as needed.
+- Browse at http://localhost:8080. With auto-install enabled (see below) the site is ready; otherwise complete the setup wizard.
 
 ## WordPress theme (converted from the current static pages)
 
@@ -42,3 +42,13 @@ docker run -d --name wp-single -p 8080:80 `
   - Privacy Policy (`/privacy-policy`)
   - Terms & Conditions (`/terms-and-conditions`)
 - The templates auto-apply by slug; the shared nav/footer match the original static site, and brand assets are bundled in the theme.
+
+## Auto-install WordPress (skip the setup wizard)
+
+- Edit `wp-setup.conf` before building to set:
+  - `SITE_TITLE`, `SITE_URL`, `ADMIN_USER`, `ADMIN_PASSWORD`, `ADMIN_EMAIL`
+- On first container start, `wp-entrypoint.sh` will:
+  - copy WordPress core into `/var/www/html` if the volume is empty
+  - generate `wp-config.php` with the DB values above
+  - run `wp core install` with the configured site title, URL, and admin credentials
+- You can override these at runtime with env vars: `WP_SITE_TITLE`, `WP_SITE_URL`, `WP_ADMIN_USER`, `WP_ADMIN_PASSWORD`, `WP_ADMIN_EMAIL`, or point to a different config file via `WP_SETUP_CONFIG`.
