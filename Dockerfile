@@ -12,5 +12,9 @@ RUN mkdir -p /var/lib/mysql && chown -R mysql:mysql /var/lib/mysql
 COPY wp-entrypoint.sh /usr/local/bin/wp-entrypoint.sh
 RUN chmod +x /usr/local/bin/wp-entrypoint.sh
 
+# Copy the custom WordPress theme and site icons into the source tree that populates /var/www/html.
+COPY wp-content /usr/src/wordpress/wp-content
+COPY favicon.ico apple-touch-icon.png /usr/src/wordpress/
+
 ENTRYPOINT ["wp-entrypoint.sh"]
 CMD ["apache2-foreground"]
